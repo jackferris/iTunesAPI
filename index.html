@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <title>iTunes</title>
+</head>
+<body>
+<select id="genreId">
+    <option selected disabled>Genre</option>
+    <option value="1">Grime</option>
+    <option value="2">Hip Hop</option>
+    <option value="3">Jazz</option>
+    <option value="4">Rock</option>
+
+</select>
+
+<select id="artist">
+    <option selected disabled>Artist</option>
+    <option value="1" id="option1"></option>
+    <option value="2" id="option2"></option>
+    <option value="3" id="option3"></option>
+</select>
+
+<select id="displayMusic">
+    <option selected disabled>Format</option>
+    <option value="1">Albums</option>
+    <option value="2">Songs</option>
+    <option value="3">Top Hits</option>
+</select>
+
+<select id="numResults">
+    <option selected disabled>Number of Results</option>
+    <option value="10">10</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+</select>
+
+<button id="submit" onClick="">Load Results</button>
+
+<div id="table"></div>
+
+
+
+
+<audio controls="true" src="" id="audio" type="audio/m4a"></audio>
+
+
+</body>
+</html>
