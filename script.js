@@ -37,52 +37,56 @@ $(document).ready(function(){
             $("#option3").html("Green Day");
             $("#option3").val("Green+Day");
         }
-        $("#displayMusic").on('change', function() {
-           if($("#displayMusic").val() == 1) {
-               $("#numResults").attr("disabled");
-           }
-
-        });
+        // $("#displayMusic").on('change', function() {
+        //    if($("#displayMusic").val() == 1) {
+        //        $("#numResults").attr("disabled", true);
+        //    }
+        //
+        // });
     });
     
 
 
-$('#submit').on('click', function() {
-    var artist = $('#artist').val();
-    $.ajax({
-        url: "https://itunes.apple.com/search?term=" + artist,
-        type: 'GET',
-        crossDomain: true,
-        dataType: 'jsonp',
-        success: function(result) {
-            console.log(result);
-            process(result);
-        },
-        error: function() { alert('Failed!'); }
+    $('#load').on('click', function() {
+        var artist = $('#artist').val();
+        var limit = $("#numResults").val();
+        $.ajax({
+            url: "https://itunes.apple.com/search?term=" + artist + "&limit=" + limit,
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'jsonp',
+            success: function(result) {
+                console.log(result);
+                process(result);
+            },
+            error: function() { alert('Failed!'); }
+        });
     });
-});
 
 });
+
+
 
 function process(json) {
     //process your json
     var category = $("#displayMusic").val();
     console.log(category);
     console.log(json);
-    var albumTable = "<table id='albumTable' border='1' cellspacing='1'>";
+    var albumTable = "<table id='albumTable' border='1' cellspacing='1'><tr><td>Album</td><td>Artist</td><td>Album Cover</td>" +
+        "<td>Price</td><td>Preview</td></tr>";
     if(category == 1) {
-        for(var i=0; i < $("#numResults").val(); i++) {
-            albumTable += "<tr><td>" + json.results[i].collectionName + " </td> <td> " + json.results[i].artistName + "</td> <td> <img src='" +
-                json.results[i].artworkUrl100 + "' alt='mzstatic.com'></td> <td>" + json.results[i].collectionPrice + "</td> <td> <audio src='" + json.results[i].previewUrl +
+        for(var i=0; i < json.results.length; i++) {
+            albumTable += "<tr><td>" + json.results[i].collectionName + " </td><td> " + json.results[i].artistName + "</td> <td> <img src='" +
+                json.results[i].artworkUrl100 + "' alt='mzstatic.com'></td><td>" + json.results[i].collectionPrice + "</td><td> <audio src='" + json.results[i].previewUrl +
                 "'controls='true' type='audio/m4a'></audio></td>";
         }
         albumTable += "</table>";
         $("#table").html(albumTable);
         console.log(albumTable);
     }
-    var songTable = "<table id='songTable' border='1' cellspacing='1'>";
+    var songTable = "<table id='songTable' border='1' cellspacing='1'><tr><td>Track</td><td>Artist</td><td>Cover Art</td><td>Price</td><td>Track Preview</td></tr>";
     if(category == 2) {
-        for(var i=0; i < $("#numResults").val(); i++) {
+        for(var i=0; i < json.results.length; i++) {
             songTable += "<tr><td>" + json.results[i].trackName + " </td> <td> " + json.results[i].artistName + "</td> <td> <img src='" +
                 json.results[i].artworkUrl100 + "' alt='mzstatic.com'></td> <td>" + json.results[i].trackPrice + "</td> <td> <audio src='" + json.results[i].previewUrl +
                 "'controls='true' type='audio/m4a'></audio></td>";
@@ -92,6 +96,7 @@ function process(json) {
         console.log(songTable);
     }
 }
+
 
 
 

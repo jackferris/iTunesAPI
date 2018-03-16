@@ -6,15 +6,18 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="stylesheet.css"/>
     <title>iTunes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="loading.css"/>
 </head>
 <body>
+<div id="title">iTunes</div>
+
 <select id="genreId">
     <option selected disabled>Genre</option>
     <option value="1">Grime</option>
     <option value="2">Hip Hop</option>
     <option value="3">Jazz</option>
     <option value="4">Rock</option>
-
 </select>
 
 <select id="artist">
@@ -28,7 +31,6 @@
     <option selected disabled>Format</option>
     <option value="1">Albums</option>
     <option value="2">Songs</option>
-    <option value="3">Top Hits</option>
 </select>
 
 <select id="numResults">
@@ -38,14 +40,16 @@
     <option value="50">50</option>
 </select>
 
-<button id="submit" onClick="">Load Results</button>
+<!--<button id="submit" onClick="">-->
+   <!--Load Results-->
+<!--</button>-->
+
+<div style="margin:1em;">
+    <button type="button" class="btn btn-primary btn-md" id="load" data-loading-text="<i class='ld-hourglass'></i> Loading Results">Load Results</button>
+</div>
 
 <div id="table"></div>
 
-
-
-
-<audio controls="true" src="" id="audio" type="audio/m4a"></audio>
 
 
 </body>

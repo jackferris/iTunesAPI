@@ -1,0 +1,103 @@
+#title {
+    font-size: 75px;
+    text-align: center;
+    border: 1px;
+    border-color: white;
+}
+
+body {
+    text-align: center;
+    font-color: black;
+    background-image: url("https://u.cubeupload.com/oKrH26.png");
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#albumTable {
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 80%;
+    vertical-align: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 20px;
+}
+#songTable {
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+    width: 80%;
+    vertical-align: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#genreId {
+    background-color: rgba(227, 220, 255, 0.56);
+}
+#genreId:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff ;
+}
+
+#artist {
+    background-color: rgba(227, 220, 255, 0.56);
+}
+#artist:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff;
+}
+
+#displayMusic {
+    background-color: rgba(227, 220, 255, 0.56);
+}
+#displayMusic:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff ;
+}
+
+#numResults {
+    background-color: rgba(227, 220, 255, 0.56);
+}
+#numResults:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff ;
+}
+
+#load {
+    background-color: #c3faff;
+    color: black;
+}
+tr:hover {background-color: rgba(255, 255, 255, 0.4);}
+
+
